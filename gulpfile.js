@@ -24,6 +24,7 @@
     rev             =   require('gulp-rev'),
     revDel          =   require('rev-del'),
     revReplaceCSS   =   require('gulp-rev-css-url'),
+    fs              =   require('fs'),
     del             =   require('del'),
     runSequence     =   require('run-sequence'),
     plumber         =   require('gulp-plumber'),
@@ -36,7 +37,9 @@
    Load configuration file
    ========================================================================== */
 
-    var config = (require('fs').existsSync('./config.json') ? JSON.parse(require('fs').readFileSync('./config.json')) : {});
+    var config = fs.existsSync('./config.json')
+        ? JSON.parse(fs.readFileSync('./config.json'))
+        : {};
 
 /* ==========================================================================
    Default task
@@ -51,7 +54,7 @@
    ========================================================================== */
 
     gulp.task('build', function(callback) {
-        runSequence('clean:dist', ['sass', 'scripts'], 'rev', 'image', callback);
+        runSequence('clean', 'lint', 'sass', 'scripts', 'image', 'rev', callback);
     });
 
     gulp.task('build:sass', function(callback) {
@@ -59,7 +62,7 @@
     });
 
     gulp.task('build:scripts', function(callback) {
-        runSequence('scripts', 'rev', callback);
+        runSequence('lint:scripts', 'scripts', 'rev', callback);
     });
 
 /* ==========================================================================
@@ -89,84 +92,118 @@
    SASS Task
    ========================================================================== */
 
-    gulp.task('sass', function () {
-        var app = gulp.src('assets/source/sass/app.scss')
+    gulp.task('sass:app', function () {
+        return gulp.src('assets/source/sass/app.scss')
                 .pipe(plumber())
                 .pipe(sourcemaps.init())
                 .pipe(sass().on('error', sass.logError))
                 .pipe(autoprefixer({
-                        browsers: ['last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1']
-                    }))
+                    browsers: ['last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1']
+                }))
                 .pipe(sourcemaps.write())
                 .pipe(gulp.dest('./assets/dist/css'))
                 .pipe(cleanCSS({debug: true}))
                 .pipe(gulp.dest('./assets/tmp/css'));
+    });
 
-        var admin = gulp.src('assets/source/sass/admin.scss')
+    gulp.task('sass:admin', function () {
+        return gulp.src('assets/source/sass/admin.scss')
                 .pipe(plumber())
                 .pipe(sourcemaps.init())
                 .pipe(sass().on('error', sass.logError))
                 .pipe(autoprefixer({
-                        browsers: ['last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1']
-                    }))
+                    browsers: ['last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1']
+                }))
                 .pipe(sourcemaps.write())
                 .pipe(gulp.dest('./assets/dist/css'))
                 .pipe(cleanCSS({debug: true}))
                 .pipe(gulp.dest('./assets/tmp/css'));
+    });
 
-        return [app, admin];
+    gulp.task('sass:customizer', function () {
+        return gulp.src('assets/source/sass/customizer.scss')
+                .pipe(plumber())
+                .pipe(sourcemaps.init())
+                .pipe(sass().on('error', sass.logError))
+                .pipe(autoprefixer({
+                    browsers: ['last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1']
+                }))
+                .pipe(sourcemaps.write())
+                .pipe(gulp.dest('./assets/dist/css'))
+                .pipe(cleanCSS({debug: true}))
+                .pipe(gulp.dest('./assets/tmp/css'));
+    });
+
+    gulp.task('sass', function(callback) {
+        runSequence('sass:app', 'sass:admin', 'sass:customizer', callback);
+    });
+
+/* ==========================================================================
+   Linter tasks
+   ========================================================================== */
+
+    gulp.task('lint:scripts', function() {
+        return gulp.src([
+                'assets/source/js/*.js',
+                'assets/source/js/**/*.js',
+                '!assets/source/js/font.js',
+            ])
+            .pipe(jshint({ multistr: true }))
+            .pipe(jshint.reporter('default'));
+    });
+
+    gulp.task('lint', function(callback) {
+        runSequence('lint:scripts', callback);
     });
 
 /* ==========================================================================
    Scripts task
    ========================================================================== */
 
-    gulp.task('scripts', function() {
-        var app = gulp.src(['assets/source/js/app.js', 'assets/source/js/*.js', 'assets/source/js/*/*.js', '!assets/source/js/admin/*.js', '!assets/source/js/admin/*/*.js'])
+    gulp.task('scripts:app', function() {
+        return gulp.src([
+                'assets/source/js/*.js',
+                'assets/source/js/*/*.js',
+                '!assets/source/js/Admin/*.js',
+                '!assets/source/js/Admin/*/*.js',
+            ])
             .pipe(plumber())
             .pipe(sourcemaps.init())
-            .pipe(jshint({multistr: true}))
             .pipe(concat('app.js'))
             .pipe(sourcemaps.write())
             .pipe(gulp.dest('./assets/dist/js'))
             .pipe(uglify())
             .pipe(gulp.dest('./assets/tmp/js'));
+    });
 
-        var admin = gulp.src(['assets/source/js/admin/*.js', 'assets/source/js/admin/*/*.js'])
+    gulp.task('scripts:admin', function() {
+        return gulp.src([
+                'assets/source/js/Admin/*.js',
+                'assets/source/js/Admin/*/*.js',
+            ])
             .pipe(plumber())
             .pipe(sourcemaps.init())
-            .pipe(jshint({multistr: true}))
-            .pipe(jshint.reporter("default"))
             .pipe(concat('admin.js'))
             .pipe(sourcemaps.write())
             .pipe(gulp.dest('./assets/dist/js'))
             .pipe(uglify())
             .pipe(gulp.dest('./assets/tmp/js'));
+    });
 
-        var vendor = gulp.src([
-                'assets/source/js/vendor/*.js'
-            ])
-            .pipe(plumber())
-            .pipe(sourcemaps.init())
-            .pipe(concat('vendor.js'))
-            .pipe(sourcemaps.write())
-            .pipe(gulp.dest('./assets/dist/js'))
-            .pipe(uglify())
-            .pipe(gulp.dest('./assets/tmp/js'));
-
-        var mce = gulp.src([
+    gulp.task('scripts:mce', function() {
+        return gulp.src([
                 'assets/source/mce-js/*.js'
             ])
             .pipe(plumber())
             .pipe(sourcemaps.init())
-            .pipe(concat('mce.js'))
             .pipe(sourcemaps.write())
             .pipe(gulp.dest('./assets/dist/js'))
             .pipe(uglify())
             .pipe(gulp.dest('./assets/tmp/js'));
+    });
 
-        return [app, vendor, admin, mce];
-
+    gulp.task('scripts', function(callback) {
+        runSequence('scripts:app', 'scripts:admin', 'scripts:mce', callback);
     });
 
 /* ==========================================================================
@@ -180,13 +217,17 @@
     });
 
 /* ==========================================================================
-   Clean/Clear tasks
+   Clean tasks
    ========================================================================== */
 
-    gulp.task('clean:dist', function () {
+    gulp.task('clean:dist', function() {
         return del.sync('./assets/dist');
     });
 
-    gulp.task('clean:tmp', function () {
+    gulp.task('clean:tmp', function() {
         return del.sync('./assets/tmp');
+    });
+
+    gulp.task('clean', function(callback) {
+        runSequence('clean:dist', 'clean:tmp', callback);
     });
