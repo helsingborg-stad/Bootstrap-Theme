@@ -21,7 +21,7 @@ class CustomPostType
         }, 10, 3);
 
         //Use page or single template
-        add_filter('single_template', array($this, 'setPageTemplate'), 20);
+        add_filter('single_template', array($this, 'setPageTemplate'), 10);
 
         //Disable filled fields
         add_action('admin_head', function () {
