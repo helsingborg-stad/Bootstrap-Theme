@@ -1,13 +1,13 @@
 {
-  "css/admin.css": "css/admin.css",
-  "css/app.css": "css/app.css",
-  "css/customizer.css": "css/customizer.css",
-  "js/admin.js": "js/admin.js",
-  "js/ajax.js": "js/ajax.js",
-  "js/app.js": "js/app.js",
-  "js/mce.js": "js/mce.js",
-  "js/mce-buttons.js": "js/mce-buttons.js",
-  "js/mce-metadata.js": "js/mce-metadata.js",
-  "js/mce-pricons.js": "js/mce-pricons.js",
-  "js/mce-print-break.js": "js/mce-print-break.js"
+  "css/admin.css": "css/admin.57cd8ac9.css",
+  "css/app.css": "css/app.07b37da7.css",
+  "css/customizer.css": "css/customizer.27e36ada.css",
+  "js/admin.js": "js/admin.51e59c873bb7cdd65761.js",
+  "js/ajax.js": "js/ajax.06ea2824f53f2ad4f7c3.js",
+  "js/app.js": "js/app.16e15294aad57b8dcd1a.js",
+  "js/mce.js": "js/mce.b335035de30d658aa021.js",
+  "js/mce-buttons.js": "js/mce-buttons.1aff0fe8f30c0141a09d.js",
+  "js/mce-metadata.js": "js/mce-metadata.552b0b065eec43bf4dad.js",
+  "js/mce-pricons.js": "js/mce-pricons.d6faf21c0d8c885e6413.js",
+  "js/mce-print-break.js": "js/mce-print-break.a161bccf2dab3c971c24.js"
 }
