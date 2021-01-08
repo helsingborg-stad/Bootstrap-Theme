@@ -96,14 +96,6 @@
   }
 
   // Collections
-  .o-container, .c-collection, c-collection__item {
-    display: contents;
-    overflow: visible;
-    page-break-before: avoid;
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-
   .c-collection {
 
     .c-collection__icon {
@@ -119,6 +111,16 @@
       background: transparent;
       transition: none;
     }
+  }
+
+  // Avoid print page cut content in half.
+  .o-container, .c-collection, c-collection__item,
+  #site-footer {
+    display: contents;
+    overflow: visible;
+    page-break-before: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
   }
 
   .site-wrapper {
@@ -170,6 +172,10 @@
     }
   }
 
+  .c-notice {
+    background-color: #ededed;
+  }
+
   .c-card__image-background {
     display: block;
   }
@@ -184,27 +190,32 @@
   }
 
   //Display or not
+  nav,
+  .c-card__footer,
+  .c-button,
+  .c-icon,
+  .hidden-print,
+  .c-contact-banner__item-icon,
+  .modularity-mod-contact-banner,
+  .nav-helper,
+  .hidden-print,
+  .nav-accessibility,
+  #mobile-search-form,
+  #header-search-form--field,
+  #sidebar-slider-area--container,
+  #hero-search-form,
   .modularity-edit-module,
   .modularity-edit-module:before,
   .modularity-edit-module:after,
   .modularity-edit-module a,
   .modularity-edit-module a:before,
   .modularity-edit-module a:after,
-  .c-link.c-contact-banner__item-cta {
+  .c-link.c-contact-banner__item-cta,
+  .menu-sidfotsmeny-container {
     display: none !important;
   }
 
-  nav,
-  ,c-card__footer,
-  .c-button,
-  .c-icon,
-  .hidden-print,
-  .c-contact-banner__item-icon,
-  #sidebar-slider-area--container,
-  #hero-search-form {
-    display: none;
 
-  }
 
 
 }
