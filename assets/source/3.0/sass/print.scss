@@ -1,96 +1,210 @@
 @media print {
-    *,
-    *:before,
-    *:after {
-        color: #000 !important; // Black prints faster: h5bp.com/s
-        text-shadow: none !important;
-        background: transparent !important;
-        box-shadow: none !important;
+
+  @page {
+    size: auto;
+  }
+
+  *,
+  *:before,
+  *:after {
+    color: #000 !important; // Black prints faster: h5bp.com/s
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+
+  // Typography
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+
+  }
+
+
+  // Links
+  a,
+  a:visited {
+    text-decoration: underline;
+    color: #2e4453;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
+    padding: 16px 0px;
+  }
+
+  *:hover {
+    background: transparent;
+  }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  // Don't show links that are fragment identifiers,
+  // or use the `javascript:` pseudo protocol
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+
+  // Blocks
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  // breaks
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  // header
+  .site-header {
+    margin-bottom: 16px;
+    margin-top: -16px;
+
+    a:after {
+      display: none;
     }
 
-    a,
-    a:visited {
-        text-decoration: underline;
+  }
+
+  // Cards
+  .c-card__body {
+    padding: 10px 0 0;
+    margin: 0px;
+  }
+
+  .c-card--panel .c-card__header {
+    background: none;
+    border-bottom: 3px solid #ae0b05;
+    padding-left: 0px;
+  }
+
+  // Collections
+  .o-container, .c-collection, c-collection__item {
+    display: contents;
+    overflow: visible;
+    page-break-before: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .c-collection {
+
+    .c-collection__icon {
+      display: none;
     }
 
-    a[href]:after {
-        content: " (" attr(href) ")";
+    .c-collection__action:hover,
+    .c-collection__action:hover a,
+    a.c-collection__item.c-collection__item--action:hover,
+    a.c-collection__item.c-collection__item--action:hover a,
+    button.c-collection__item.c-collection__item--action:hover,
+    button.c-collection__item.c-collection__item--action:hover a {
+      background: transparent;
+      transition: none;
     }
+  }
 
-    abbr[title]:after {
-        content: " (" attr(title) ")";
-    }
+  .site-wrapper {
+    color-adjust: exact;
+  }
 
-    // Don't show links that are fragment identifiers,
-    // or use the `javascript:` pseudo protocol
-    a[href^="#"]:after,
-    a[href^="javascript:"]:after {
-        content: "";
-    }
+  // Grid - TODO: Borde kanske flyttas så vi blir av med important
+  .o-container div {
+    margin-bottom: 0px;
+  }
 
-    pre,
-    blockquote {
-        border: 1px solid #999;
-        page-break-inside: avoid;
-    }
+  .o-grid {
+    margin-bottom: 16px !important;
+  }
+
+  .grid-md-4 {
+    width: 33% !important;
+    float: left !important;
+  }
+
+  .grid-md-6 {
+    width: 50% !important;
+    float: left !important;
+  }
+
+  .grid-md-4, .grid-md-6 {
+    padding-right: 16px !important;
+    padding-left: 16px !important;
+
+  }
+
+  /* tables */
+  .table {
+    border-collapse: collapse !important;
 
     thead {
-        display: table-header-group; // h5bp.com/t
+      display: table-header-group; // h5bp.com/t
     }
 
-    tr,
-    img {
-        page-break-inside: avoid;
+    td,
+    th {
+      background-color: #fff !important;
     }
+  }
+  .table-bordered {
+    th,
+    td {
+      border: 1px solid #ddd !important;
+    }
+  }
 
-    img {
-        max-width: 100% !important;
-    }
+  .c-card__image-background {
+    display: block;
+  }
 
-    p,
-    h2,
-    h3 {
-        orphans: 3;
-        widows: 3;
-    }
+  // Contact banner
+  .c-contact-banner__info {
+    float: none !important;
+  }
 
-    h2,
-    h3 {
-        page-break-after: avoid;
-    }
+  .c-contact-banner__info:after {
+    clear: both;
+  }
 
-    // Bootstrap specific changes start
+  //Display or not
+  .modularity-edit-module,
+  .modularity-edit-module:before,
+  .modularity-edit-module:after,
+  .modularity-edit-module a,
+  .modularity-edit-module a:before,
+  .modularity-edit-module a:after,
+  .c-link.c-contact-banner__item-cta {
+    display: none !important;
+  }
 
-    // Bootstrap components
-    .navbar {
-        display: none;
-    }
-    .btn,
-    .dropup > .btn {
-        > .caret {
-            border-top-color: #000 !important;
-        }
-    }
-    .label {
-        border: 1px solid #000;
-    }
+  nav,
+  ,c-card__footer,
+  .c-button,
+  .c-icon,
+  .hidden-print,
+  .c-contact-banner__item-icon,
+  #sidebar-slider-area--container,
+  #hero-search-form {
+    display: none;
 
-    .table {
-        border-collapse: collapse !important;
+  }
 
-        td,
-        th {
-            background-color: #fff !important;
-        }
-    }
-    .table-bordered {
-        th,
-        td {
-            border: 1px solid #ddd !important;
-        }
-    }
 
-    .hidden-print {
-        display:none;
-    }
 }
