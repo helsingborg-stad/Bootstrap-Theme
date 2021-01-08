@@ -191,6 +191,7 @@
 
   //Display or not
   nav,
+  .c-nav,
   .c-card__footer,
   .c-button,
   .c-icon,
@@ -211,6 +212,8 @@
   .modularity-edit-module a:before,
   .modularity-edit-module a:after,
   .c-link.c-contact-banner__item-cta,
+  .c-notice__icon,
+  .modularity-mod-player__wrapper,
   .menu-sidfotsmeny-container {
     display: none !important;
   }
