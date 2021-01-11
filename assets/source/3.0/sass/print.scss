@@ -113,10 +113,14 @@
     }
   }
 
+  .c-header.c-header--business .c-header__menu.c-header__menu--secondary {
+    height:8px;
+  }
+
   // Avoid print page cut content in half.
   .o-container, .c-collection, c-collection__item,
   #site-footer, img {
-    display: contents;
+    display: unset;
     overflow: visible;
     page-break-before: avoid;
     page-break-inside: avoid;
