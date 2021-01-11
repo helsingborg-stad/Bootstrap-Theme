@@ -115,12 +115,13 @@
 
   // Avoid print page cut content in half.
   .o-container, .c-collection, c-collection__item,
-  #site-footer {
+  #site-footer, img {
     display: contents;
     overflow: visible;
     page-break-before: avoid;
     page-break-inside: avoid;
     break-inside: avoid;
+    break-before: avoid;
   }
 
   .site-wrapper {
@@ -192,6 +193,7 @@
   //Display or not
   nav,
   .c-nav,
+  footer .textwidget,
   .c-card__footer,
   .c-button,
   .c-icon,
