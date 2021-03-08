@@ -1,6 +1,6 @@
 $drawer-background: white;
 $drawer-transition-ms: 300ms;
-$drawer-width: $base * 40;
+$drawer-width: calc(#{$base} * 40);
 
 // Drawer
 .c-drawer {
@@ -22,13 +22,13 @@ $drawer-width: $base * 40;
 }
 
 .c-drawer__header {
-    height: $base * 13.25;
+    height: calc(#{$base} * 13.25);
 }
 
 .c-drawer__footer {
     border-top: 1px solid rgba(255, 255, 255,.3);
     align-self: flex-end;
-    padding: $base * 4 $base * 4 $base * 12 $base * 4;
+    padding: calc(#{$base} * 4) calc(#{$base}  * 4) calc(#{$base} * 12) calc(#{$base} * 4);
 }
 
 // Drawer Modifiers
@@ -97,8 +97,8 @@ $drawer-width: $base * 40;
 .hamburger.hamburger--drawer {
     margin-left: auto;
 
-    padding: $base * 3 $base * 4;
+    padding: calc(#{$base} * 3) calc(#{$base} * 4);
     @include mq('md') {
-        padding: $base * 5 $base * 4;
+        padding: calc(#{$base} * 5) calc(#{$base} * 4);
     }
 }

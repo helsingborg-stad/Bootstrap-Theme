@@ -2,7 +2,7 @@
   height: 80vh;
   display: grid; 
   align-items: center; 
-  row-gap: $base * 4;
+  row-gap: calc(#{$base} * 4);
   align-content: center;
   max-width: 800px;
 

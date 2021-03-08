@@ -11,7 +11,7 @@
 }
 
 .search-modal .c-form {
-    max-width: $base*75;
+    max-width: calc(#{$base} * 75);
     width: 90%; 
     margin: auto;
 }
@@ -35,7 +35,7 @@
         
         min-width: 300px;
         position: absolute;
-        top: calc(50% - #{$base*5});
+        top: calc(50% - calc(#{$base} *5));
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 3000;
@@ -61,7 +61,6 @@
     }
 
     #hero-search-form .c-button {
-        border-radius: 0;
         box-shadow: none; 
         border-left: 1px solid #eee;
         color: inherit;

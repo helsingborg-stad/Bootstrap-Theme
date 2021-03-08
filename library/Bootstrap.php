@@ -77,7 +77,11 @@ add_action('init', function () {
         'navigation-widget'                         => 'group_5ae64000dd723',
         'options-customize-header'                  => 'group_5afa93c0a25e1',
         'options-customize-footer'                  => 'group_5afa94c88e1aa',
-        'widget-media'                              => 'group_5b2b70c0bde2f'
+        'widget-media'                              => 'group_5b2b70c0bde2f',
+
+        //Customizer
+        'customizer-color'                          => 'group_60361b6d86d9d',
+        'customizer-radius'                         => 'group_603662f315acc'
     ));
     $acfExportManager->import();
 });

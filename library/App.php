@@ -86,6 +86,7 @@ class App
         new \Municipio\Admin\UI\BackEnd();
         new \Municipio\Admin\UI\FrontEnd();
         new \Municipio\Admin\UI\Editor();
+        new \Municipio\Admin\UI\Customizer();
 
         new \Municipio\Admin\TinyMce\LoadPlugins();
 
@@ -93,6 +94,11 @@ class App
          * Api
          */
         new \Municipio\Api\Navigation();
+
+        /**
+         * Customizer
+         */
+        new \Municipio\Customizer\Design();
 
         add_filter('Modularity/CoreTemplatesSearchPaths', function ($paths) {
             $paths[] = get_stylesheet_directory() . '/views/v3';

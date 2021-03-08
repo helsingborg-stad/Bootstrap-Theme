@@ -2,18 +2,18 @@
 .c-header.c-header--business .c-logotype,
 .c-header.c-header--casual .c-logotype {
   display: block;
-  height: $base * 6.5;
+  height: calc(#{$base} * 6.5);
   width: auto;
 
   @include mq('xs') {
-    height: $base * 6;
+    height: calc(#{$base} * 6);
   }
 
   @include mq('md') {
-    height: $base * 7;
+    height: calc(#{$base} * 7);
   }
 
   @include mq('lg') {
-    height: $base * 9;
+    height: calc(#{$base} * 9);
   }
 }

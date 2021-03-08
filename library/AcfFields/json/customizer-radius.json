@@ -1,0 +1,104 @@
+[{
+    "key": "group_603662f315acc",
+    "title": "Radiuses",
+    "fields": [
+        {
+            "key": "field_603662f7a16f8",
+            "label": "X-Small",
+            "name": "municipio_radius_xs",
+            "type": "range",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 2,
+            "min": 0,
+            "max": 12,
+            "step": 2,
+            "prepend": "",
+            "append": "px"
+        },
+        {
+            "key": "field_6038fa31cfac6",
+            "label": "Small",
+            "name": "municipio_radius_sm",
+            "type": "range",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 2,
+            "min": 0,
+            "max": 12,
+            "step": 2,
+            "prepend": "",
+            "append": "px"
+        },
+        {
+            "key": "field_6038fa400384b",
+            "label": "Medium",
+            "name": "municipio_radius_md",
+            "type": "range",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 2,
+            "min": 0,
+            "max": 12,
+            "step": 2,
+            "prepend": "",
+            "append": "px"
+        },
+        {
+            "key": "field_6038fa52576ba",
+            "label": "Large",
+            "name": "municipio_radius_lg",
+            "type": "range",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 2,
+            "min": 0,
+            "max": 12,
+            "step": 2,
+            "prepend": "",
+            "append": "px"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "customizer",
+                "operator": "==",
+                "value": "radius"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": ""
+}]
+

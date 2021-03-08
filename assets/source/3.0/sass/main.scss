@@ -84,8 +84,8 @@ main .c-sidebar .c-sidebar__subcontainer--top {
 }
 
 h4.module-title {
-    margin-bottom: $base * 3;
-    margin-top: $base * 3;
+    margin-bottom: calc(#{$base} * 3);
+    margin-top: calc(#{$base} * 3);
 }
 
 div:first-child > .module-title {
@@ -93,6 +93,6 @@ div:first-child > .module-title {
 }
 
 #article {
-    margin-bottom: $base * 5;
+    margin-bottom: calc(#{$base} * 5);
     padding-bottom: 0;
 }

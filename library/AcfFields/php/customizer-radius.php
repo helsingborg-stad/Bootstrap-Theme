@@ -1,0 +1,107 @@
+<?php 
+
+if (function_exists('acf_add_local_field_group')) {
+    acf_add_local_field_group(array(
+    'key' => 'group_603662f315acc',
+    'title' => __('Radiuses', 'municipio'),
+    'fields' => array(
+        0 => array(
+            'key' => 'field_603662f7a16f8',
+            'label' => __('X-Small', 'municipio'),
+            'name' => 'municipio_radius_xs',
+            'type' => 'range',
+            'instructions' => '',
+            'required' => 1,
+            'conditional_logic' => 0,
+            'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+            ),
+            'default_value' => 2,
+            'min' => 0,
+            'max' => 12,
+            'step' => 2,
+            'prepend' => '',
+            'append' => __('px', 'municipio'),
+        ),
+        1 => array(
+            'key' => 'field_6038fa31cfac6',
+            'label' => __('Small', 'municipio'),
+            'name' => 'municipio_radius_sm',
+            'type' => 'range',
+            'instructions' => '',
+            'required' => 1,
+            'conditional_logic' => 0,
+            'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+            ),
+            'default_value' => 2,
+            'min' => 0,
+            'max' => 12,
+            'step' => 2,
+            'prepend' => '',
+            'append' => __('px', 'municipio'),
+        ),
+        2 => array(
+            'key' => 'field_6038fa400384b',
+            'label' => __('Medium', 'municipio'),
+            'name' => 'municipio_radius_md',
+            'type' => 'range',
+            'instructions' => '',
+            'required' => 1,
+            'conditional_logic' => 0,
+            'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+            ),
+            'default_value' => 2,
+            'min' => 0,
+            'max' => 12,
+            'step' => 2,
+            'prepend' => '',
+            'append' => __('px', 'municipio'),
+        ),
+        3 => array(
+            'key' => 'field_6038fa52576ba',
+            'label' => __('Large', 'municipio'),
+            'name' => 'municipio_radius_lg',
+            'type' => 'range',
+            'instructions' => '',
+            'required' => 1,
+            'conditional_logic' => 0,
+            'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+            ),
+            'default_value' => 2,
+            'min' => 0,
+            'max' => 12,
+            'step' => 2,
+            'prepend' => '',
+            'append' => __('px', 'municipio'),
+        ),
+    ),
+    'location' => array(
+        0 => array(
+            0 => array(
+                'param' => 'customizer',
+                'operator' => '==',
+                'value' => 'radius',
+            ),
+        ),
+    ),
+    'menu_order' => 0,
+    'position' => 'normal',
+    'style' => 'default',
+    'label_placement' => 'top',
+    'instruction_placement' => 'label',
+    'hide_on_screen' => '',
+    'active' => true,
+    'description' => '',
+));
+}

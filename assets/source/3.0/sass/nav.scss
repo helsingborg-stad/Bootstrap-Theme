@@ -2,11 +2,11 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-top: $base * 2;
-    margin-bottom: $base * 2;
+    margin-top: calc(#{$base} * 2);
+    margin-bottom: calc(#{$base} * 2);
 
     @include mq('md') {
-        margin-bottom: $base * 3;
+        margin-bottom: calc(#{$base} * 3);
     }  
 
     .nav-accessibility a,
