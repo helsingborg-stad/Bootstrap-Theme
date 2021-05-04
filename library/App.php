@@ -19,6 +19,11 @@ class App
         new \Municipio\Admin\Acf\CustomFieldTypes();
 
         /**
+         * Set default static options
+         */
+        new \Municipio\SetDefaultSiteSettings();
+
+        /**
          * Template
          */
         new \Municipio\Template();
