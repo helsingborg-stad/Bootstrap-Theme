@@ -1,4 +1,4 @@
-<?php
+@php
     $selected = isset($_GET['filter'][$taxKey]) && $_GET['filter'][$taxKey] !== '-1' ? $_GET['filter'][$taxKey] : null;
 
     wp_dropdown_categories(array(
@@ -11,3 +11,4 @@
         'selected'          => $selected,
         'orderby'           => 'name'
     ));
+@endphp
